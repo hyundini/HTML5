@@ -16,7 +16,6 @@ body{
 /* 레이아웃 */
 .header, .visual, .main, .slogan, .footer-inner{
   width: 940px;
-  box-sizing: border-box;
   margin: 0 auto;
 }
 
@@ -41,7 +40,12 @@ body{
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 30px;
+  padding: 0 15px;
+}
+
+.group{
+  margin: 0 15px;
+  float: left;
 }
 
 .group1{
