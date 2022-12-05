@@ -1,5 +1,7 @@
+
 @import url(./normalize.css);
 @import url(./reset.css);
+@import url(./fontello.css);
 
 /* 기본 스타일 */
 *,
@@ -7,23 +9,14 @@
 *::after {
   box-sizing: border-box;
 }
-
-/* 링크 스타일 */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 /* 본문 스타일 */
 body {
-  color: #212121;
-  background: #ccc;
+  background: #ffc;
   font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
-
 /* 레이아웃 */
 .header,
 .visual,
@@ -33,41 +26,61 @@ body {
   width: 940px;
   margin: 0 auto;
 }
-
 /* 헤더 */
 .header {
-  position: relative;
   background: #fff;
   padding: 0 30px;
   height: 15vh;
   border-radius: 0 0 15px 15px;
 }
-
-/* 로고  */
-.logo {
-  position: absolute;
-  top: 45px;
-  left: 60px;
-}
-
-/* 멤버 */
 .member {
-  text-align: right;
-  padding: 4px 0;
+  background-color: pink;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }
 
-.member li {
+/* 겹침 Cascading */
+/* 우선순위 규칙 */
+/* li (Type Selector) - 1점 */
+/* .first (Class Selector) - 10점 */
+/* #item (ID Selector) - 100점 */
+
+/* .member -> 10점, li -> 1점, ::before -> 1점  => 12점  */
+/* .member li::before {
+  content: ":";
+}
+} */
+/* .member -> 10점, .first -> 10점, ::before -> 1점  => 21점  */
+/* .member .first::before {
+  content: "첫번째 자식요소를 생성합니다.";
+} */
+/* .member li:first-child::before {
+  content: "";
+} */
+
+
+.member li::before {
+  content: "\e800";
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
   display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
 }
 
-.member a {
-  background: coral;
-  display: inherit;
-  padding: 6px 10px;
+.member li:nth-child(n + 2)::before {
+  content: ":";
+  background-color: skyblue;
 }
 
-.divider {
-  margin-right: 4px;
+.member li:nth-child(n + 2):nth-child(-n + 4) {
+  background-color: yellow;
 }
 
 /* 비주얼 */
@@ -75,33 +88,31 @@ body {
   background: orange;
   height: 10vh;
 }
-
 /* 메인 */
 .main {
   background: lightgreen;
-  height: 50vh;
-  display: flow-root;
-  padding: 0 15px;
+  border-top: 1px solid red;
+  /* min-height: 450px; */
+  position: absolute;
 }
-
 .group {
-  margin: 0 15px;
-  float: left;
+  height: 100px;
 }
-
 .group1 {
   background-color: violet;
   width: 250px;
+  float: right;
 }
 .group2 {
   background-color: salmon;
   width: 380px;
+  float: right;
 }
 .group3 {
   background-color: gold;
   width: 190px;
+  float: right;
 }
-
 /* 슬로건 */
 .slogan {
   background: skyblue;
@@ -111,8 +122,13 @@ body {
 /* 푸터 */
 .footer {
   background: gray;
+  width: 940px;
+  margin: 0 auto;
 }
 .footer-inner {
   background: silver;
   height: 15vh;
+  position: relative;
+  top: -10px;
+  left: -10px;
 }
