@@ -2,14 +2,17 @@
 @import url(./normalize.css);
 @import url(./reset.css);
 
+
 /* 숨김 콘텐츠 */
-.a11y-hidden {
+
+.a11y-hidden,legend {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: inset(50%);
 }
+
 
 /* 기본 스타일 */
 *,
@@ -22,11 +25,14 @@ html {
   font-size: 10px;
 }
 
+
 /* 링크 스타일 */
 a {
   color: inherit;
   text-decoration: none;
 }
+
+
 
 /* 본문 스타일 */
 body {
@@ -41,6 +47,7 @@ body {
       repeat 0 0;
 }
 
+
 /* 레이아웃 */
 .header,
 .visual,
@@ -51,6 +58,7 @@ body {
   margin: 0 auto;
 }
 
+
 /* 헤더 */
 .header {
   background: #fff;
@@ -59,6 +67,8 @@ body {
   position: relative;
 }
 
+
+
 /* 로고 */
 .logo {
   position: absolute;
@@ -66,6 +76,7 @@ body {
   left: 60px;
   z-index: 10;
 }
+
 
 /* 텍스트 링크 모음 */
 .member {
@@ -88,14 +99,18 @@ body {
   text-transform: uppercase;
 }
 
+
 /* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의 하는 방법 */
 /* .member li:last-child a {
   padding-right: 0;
 } */
 
+
 .divider {
   margin-right: 4px;
 }
+
+
 
 /* 메인 메뉴 */
 .navigation {
@@ -127,6 +142,7 @@ body {
   border-left: 2px solid #fff;
 }
 
+
 /* 구체성 -> 10점 */
 .menu-button {
   border: 0;
@@ -138,6 +154,7 @@ body {
   color: #fff;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
+
 
 /* 구체성 -> 20점 */
 .is-active .menu-button {
@@ -210,6 +227,8 @@ body {
   color: #f00;
 }
 
+
+
 /* 비주얼 */
 @keyframes moveEffect {
   0% {
@@ -234,6 +253,7 @@ body {
     opacity: 0;
   }
 }
+
 
 .visual {
   height: 120px;
@@ -275,9 +295,11 @@ body {
   z-index: 1;
 }
 
+
+
 /* 메인 */
 .main {
-  background: lightgreen;
+  background: #fff;
   min-height: 450px;
   display: flow-root;
   padding: 30px 15px;
@@ -309,7 +331,99 @@ body {
   box-shadow: 5px 5px 0 0 #ccc;
   border-radius: 5px;
   padding: 10px;
+  position: relative;
 }
+
+.login-title{
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form{
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px ;
+}
+
+
+.login-form fieldset{
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+.user-email, .user-pw{
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 4em;
+}
+
+.login-form input {
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  color: #fff;
+  border: 0;
+  padding: 4px 10px;
+  border-radius: 0 0 5px 5px;
+  font-size: 13px;
+}
+
+
+.sign{
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 0 10px 10px 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+
+.sign a{
+  display: block;
+  padding: 6px 0;
+  letter-spacing: -1px;
+}
+
+.sign a::before{
+  content: "\e803";
+  font-family: fontello;
+  margin-right: 8px;
+  color: orangered;
+}
+
+
+/* 유효성 검사 배너 */
+.validation-list{
+  background: yellow;
+  margin-top: 25px;
+}
+
+.validation-list li{
+  background-color: pink;
+  margin-top: 10px;
+}
+
+
 
 /* 슬로건 */
 .slogan {
@@ -317,11 +431,14 @@ body {
   height: 10vh;
   clear: both;
 }
+
+
 /* 푸터 */
 .footer {
   background: #ccc
     linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
 }
+
 .footer-inner {
   background: silver;
   height: 15vh;
